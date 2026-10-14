@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Ventura — Presença Digital Local para Negócios</title>
+  <meta name="description" content="Ajudo pequenas empresas a aparecerem no Google e conquistarem mais clientes. Otimização de Google Meu Negócio, sites profissionais e consultoria digital.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+    body { background: #f8fafc; color: #1e293b; line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Inter', sans-serif; font-weight: 700; line-height: 1.2; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* HEADER */
+    header { background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #1a56db; text-decoration: none; }
+    .nav-links { display: none; gap: 32px; }
+    .nav-links a { text-decoration: none; color: #1e293b; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #1a56db; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #0f9d58; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+    .btn-whatsapp:hover { background: #0b7a43; transform: translateY(-2px); }
+    
+    /* HERO */
+    .hero { padding: 80px 0; background: linear-gradient(135deg, #1e3a8a 0%, #1a56db 100%); color: #fff; text-align: center; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .hero p { font-size: 1.25rem; margin-bottom: 32px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero .btn-whatsapp { background: #fff; color: #1a56db; font-size: 1.1rem; padding: 16px 32px; }
+    .hero .btn-whatsapp:hover { background: #f1f5f9; }
+    
+    /* SECTIONS */
+    section { padding: 80px 0; }
+    .section-title { text-align: center; font-size: 2rem; margin-bottom: 16px; color: #1e293b; }
+    .section-subtitle { text-align: center; color: #64748b; margin-bottom: 48px; font-size: 1.1rem; }
+    
+    /* SERVICES */
+    .services { background: #fff; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+    .service-card { padding: 32px; border-left: 4px solid #1a56db; background: #f8fafc; border-radius: 0 12px 12px 0; transition: all 0.3s; }
+    .service-card:hover { transform: translateX(8px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+    .service-card h3 { margin-bottom: 12px; color: #1a56db; font-size: 1.3rem; }
+    .service-card p { color: #64748b; }
+    .service-card ul { list-style: none; margin-top: 16px; }
+    .service-card ul li { padding: 8px 0; color: #475569; padding-left: 24px; position: relative; }
+    .service-card ul li::before { content: "✓"; position: absolute; left: 0; color: #0f9d58; font-weight: bold; }
+    
+    /* PROCESS */
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 50px; }
+    .step { text-align: center; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .step-number { width: 60px; height: 60px; background: linear-gradient(135deg, #1a56db, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: bold; color: #fff; }
+    .step h3 { margin-bottom: 10px; color: #1e293b; }
+    .step p { color: #64748b; font-size: 0.95rem; }
+    
+    /* PRICING */
+    .pricing { background: #fff; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+    .pricing-card { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; padding: 40px; text-align: center; transition: all 0.3s; }
+    .pricing-card:hover { border-color: #1a56db; transform: translateY(-5px); }
+    .pricing-card.featured { border-color: #1a56db; background: linear-gradient(135deg, #1a56db 0%, #7c3aed 100%); color: #fff; }
+    .pricing-card.featured h3, .pricing-card.featured .price, .pricing-card.featured p, .pricing-card.featured li { color: #fff; }
+    .pricing-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #1e293b; }
+    .price { font-size: 2.5rem; font-weight: bold; margin: 20px 0; color: #1a56db; }
+    .price span { font-size: 1rem; color: #64748b; font-weight: normal; }
+    .pricing-card.featured .price { color: #fff; }
+    .pricing-card ul { list-style: none; margin: 30px 0; text-align: left; }
+    .pricing-card ul li { padding: 10px 0; color: #475569; border-bottom: 1px solid #e2e8f0; }
+    .pricing-card ul li:last-child { border-bottom: none; }
+    .pricing-card.featured ul li { color: #fff; border-bottom-color: rgba(255,255,255,0.2); }
+    
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, #1e3a8a 0%, #1a56db 100%); color: #fff; text-align: center; padding: 100px 0; }
+    .cta-section h2 { font-size: 2.25rem; margin-bottom: 20px; }
+    .cta-section p { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-section .btn-whatsapp { background: #fff; color: #1a56db; font-size: 1.2rem; padding: 18px 40px; }
+    
+    /* FOOTER */
+    footer { background: #1e293b; color: #fff; text-align: center; padding: 40px 0; }
+    footer p { opacity: 0.8; }
+    
+    /* FLOATING WHATSAPP */
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999; text-decoration: none; transition: all 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); background: #128c7e; }
+    
+    /* RESPONSIVE */
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .hero h1 { font-size: 3.5rem; }
+      .section-title { font-size: 2.5rem; }
+    }
+    @media (max-width: 767px) {
+      .hero { padding: 60px 0; }
+      .hero h1 { font-size: 2rem; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/557999998888?text=Oi!%20Gostaria%20de%20um%20diagnóstico%20gratuito%20do%20meu%20negócio%20no%20Google." class="whatsapp-float" target="_blank" rel="noopener">
+    💬
+  </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Gabriel Ventura</a>
+        <div class="nav-links">
+          <a href="#servicos">Serviços</a>
+          <a href="#como-funciona">Como Funciona</a>
+          <a href="#precos">Preços</a>
+        </div>
+        <a href="https://wa.me/557999998888?text=Oi!%20Quero%20um%20diagnóstico%20gratuito%20do%20meu%20negócio." class="btn-whatsapp" target="_blank">
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Seu negócio não aparece no Google? Eu resolvo isso.</h1>
+      <p>Ajudo pequenas empresas a serem encontradas, facilitarem o contato e converterem mais clientes — com presença digital local profissional.</p>
+      <a href="https://wa.me/557999998888?text=Oi!%20Quero%20um%20diagnóstico%20gratuito." class="btn-whatsapp" target="_blank">
+        Quero um diagnóstico gratuito
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="services">
+    <div class="container">
+      <h2 class="section-title">O que eu entrego</h2>
+      <p class="section-subtitle">Soluções simples para problemas reais de presença digital</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>🔍 Diagnóstico Digital</h3>
+          <p>Análise completa da sua presença online atual:</p>
+          <ul>
+            <li>Perfil no Google Maps</li>
+            <li>Site atual (se houver)</li>
+            <li>Canais de contato</li>
+            <li>Avaliações dos clientes</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <h3>📍 Otimização Google</h3>
+          <p>Correções para seu negócio aparecer mais:</p>
+          <ul>
+            <li>Informações corretas e completas</li>
+            <li>Categorias adequadas</li>
+            <li>Fotos organizadas</li>
+            <li>Horários atualizados</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <h3>⭐ Sistema de Avaliações</h3>
+          <p>Como conseguir mais avaliações positivas:</p>
+          <ul>
+            <li>Link direto para avaliação</li>
+            <li>QR Code personalizado</li>
+            <li>Como responder comentários</li>
+            <li>Estratégia de feedback</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <h3>📱 Melhoria de Conversão</h3>
+          <p>Tornar mais fácil o cliente entrar em contato:</p>
+          <ul>
+            <li>WhatsApp configurado</li>
+            <li>Telefone em destaque</li>
+            <li>Instruções de localização</li>
+            <li>Próximo passo claro</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <h3>🌐 Site Profissional</h3>
+          <p>Para quem precisa de uma estrutura digital melhor:</p>
+          <ul>
+            <li>Design responsivo (celular/tablet)</li>
+            <li>Carregamento rápido</li>
+            <li>Otimizado para Google</li>
+            <li>Botão WhatsApp integrado</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <h3>📊 Acompanhamento Mensal</h3>
+          <p>Manutenção e evolução contínua:</p>
+          <ul>
+            <li>Atualizações mensais</li>
+            <li>Acompanhamento de avaliações</li>
+            <li>Relatório de resultados</li>
+            <li>Suporte via WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Como funciona</h2>
+      <p class="section-subtitle">Do diagnóstico à presença digital otimizada em 4 passos</p>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Diagnóstico Grátis</h3>
+          <p>Análise completa da sua presença online atual. Identifico problemas reais.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Proposta Clara</h3>
+          <p>Apresento um plano simples com o que vai ser corrigido e o investimento.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Implementação</h3>
+          <p>Executo as melhorias em 1–2 dias úteis. Você aprova antes de publicar.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Acompanhamento</h3>
+          <p>Monitoro resultados e faço ajustes mensais para manter sua presença forte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREÇOS -->
+  <section id="precos" class="pricing">
+    <div class="container">
+      <h2 class="section-title">Investimento</h2>
+      <p class="section-subtitle">Valores transparentes para cada etapa do seu negócio</p>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Diagnóstico</h3>
+          <div class="price">Grátis</div>
+          <p>Análise completa do seu negócio</p>
+          <ul>
+            <li>Auditoria do perfil Google</li>
+            <li>Análise do site</li>
+            <li>Checklist de melhorias</li>
+            <li>Oportunidades identificadas</li>
+          </ul>
+        </div>
+        
+        <div class="pricing-card featured">
+          <h3>Presença Digital</h3>
+          <div class="price">R$ 350–600</div>
+          <p>Implantação completa do serviço</p>
+          <ul>
+            <li>Otimização do Google</li>
+            <li>Sistema de avaliações</li>
+            <li>Organização de contato</li>
+            <li>Relatório de implementação</li>
+            <li>Suporte inicial</li>
+          </ul>
+        </div>
+        
+        <div class="pricing-card">
+          <h3>Acompanhamento</h3>
+          <div class="price">R$ 250–400<span>/mês</span></div>
+          <p>Manutenção e evolução contínua</p>
+          <ul>
+            <li>Atualizações mensais</li>
+            <li>Acompanhamento de avaliações</li>
+            <li>Relatório de resultados</li>
+            <li>Suporte via WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p style="text-align: center; margin-top: 40px; color: #64748b; font-size: 0.9rem;">
+        * Site profissional disponível como complemento (R$ 900–1.800) quando necessário.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Pronto para aparecer mais no Google?</h2>
+      <p>Vamos fazer um diagnóstico gratuito do seu negócio. Sem compromisso, sem custo.</p>
+      <a href="https://wa.me/557999998888?text=Oi!%20Quero%20um%20diagnóstico%20gratuito%20do%20meu%20negócio%20no%20Google." class="btn-whatsapp" target="_blank">
+        Falar no WhatsApp agora
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Gabriel Ventura — Presença Digital Local para Negócios</p>
+      <p style="margin-top: 8px; font-size: 0.9rem;">Aracaju, SE — Atendimento personalizado e transparente</p>
+    </div>
+  </footer>
+</body>
+</html>
